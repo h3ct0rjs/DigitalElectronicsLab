@@ -62,21 +62,19 @@ Laboratorio de Electrónica Digital\\Módulo: 1} 			% Title
 %\horrule{0.5pt} \\[0.4cm] 								% Thin top horizontal rule	Title rule
 %\huge Assignment Title \\ 								% The assignment title
 %\horrule{2pt} \\[0.5cm] 								% Thick bottom horizontal rule
-\author{                                                % Authors begin.
-    Héctor F. \textsc{Jiménez S.}\\
-    \texttt{hfjimenez@utp.edu.co} \\
-    \texttt{PGP KEY ID: 0xB05AD7B8}
-    \and
-    Sebastian \textsc{Zapata}\\
-    \texttt{sebastzapata93@gmail.com }\\
-    \texttt{PGP KEY ID: 0xfffff}
-    \and 
-    Jorge Mario \textsc{Gil}\\
-    \texttt{jorgemario.gil@utp.edu.co}\\
-    \texttt{PGP KEY ID: 0xfffff}
-    }                                                      % End of  Author name
-% End of  Author name
-
+\author{												% Authors begin.
+Héctor F. \textsc{Jiménez S.}\\
+\texttt{hfjimenez@utp.edu.co} \\
+\texttt{PGP KEY ID: 0xB05AD7B8}
+\and
+Sebastian \textsc{Zapata}\\
+\texttt{sebastzapata93@gmail.com }\\
+\texttt{PGP KEY ID: 0xfffff}
+\and 
+Jorge Mario \textsc{Gil}\\
+\texttt{jorgemario.gil@utp.edu.co}\\
+\texttt{PGP KEY ID: 0xfffff}
+} 												       % End of  Author name
 \date{}    						                       % Date for the report, this will hide the \today.
 
 \begin{document}
@@ -90,7 +88,7 @@ Profesor: & Ing.Msc(c) Ramiro Andres Barrios Valencia
 %%%%%%%%%%%	
 % Let's start the document.
 %%%%%%%%%%%	
-\section{Objectivos}
+\section{Objetivos}
 \begin{itemize}
   \item Fortalecer y poner en práctica la teoría de circuitos combinacionales.
   \item Fortalecer el desarrollo de sistemas digitales, utilizando el lenguaje \emph{VHDL} y el entorno de desarrollo Xilinx ISE.
@@ -99,7 +97,6 @@ Profesor: & Ing.Msc(c) Ramiro Andres Barrios Valencia
   \item Identificar posibles problemas a la hora de acoplar los otros módulos a desarrollar.
 \end{itemize}
 $\\$
-
 %%%%%%%%%%%	
 % Theory Marc! 
 %%%%%%%%%%%	
@@ -226,11 +223,26 @@ Descripción del Pseudo código para el módulo anti rebote:
 11     Set internal switch state to pressed
 12   end if
 \end{minted}
-Código de Ejemplo de Anti-Rebote.
-%\inputminted{vhdl}{./Code/debounce.vhd}
+Posible implementacion de un Anti-Rebote.
+$$\\$$
+$$\\$$
+$$\\$$
+$$\\$$
+$$\\$$
+$$\\$$
+$$\\$$
+$$\\$$
+La implementación acontinuacion presenta el codigo implementado para el primer modulo. Se puede observar  que la entidad es la sección que describe las entradas y salidas que utilizaremos, nuestras entradas seran el boton y la señal de reloj \emph{CLK, btn\_in}, y como salida la señal \emph{Q}. 
+\inputminted{vhdl}{./Code/debounce.vhd}
+$$\\$$
+$$\\$$
+$$\\$$
+$$\\$$
+$$\\$$
+$$\\$$
 \section{Prácticas Experimentales}
-Fotos de la Simulación y Conclusiones.
+No se pudieron realizar pruebas con la placa nexys2, no se programa la fpga. 
 \section{Anexos}
-Se adjunta el código en un archivo comprimido de nombre \textsc{module1.zip}, los demás archivos son adicionales que resuelven la misma implementación.
-\textit{Nota}: Las referencias utilizadas se encuentran en los pies de página. Si requiere de manera detallada estas contacte con \emph{miembros del equipo de desarrolladores.}
+los demás archivos son adicionales que resuelven la misma implementación, se encuentran en el repositorio \texttt{github.com\/heticor915\/DigitalElectronicsLab\/tree\/master\/Reports\/Module1\/}
+\textit{Nota}: Las referencias utilizadas se encuentran en los pies de página. Si requiere de manera detallada estas contacte con \emph{miembros del equipo.}
 \end{document}
