@@ -9,6 +9,7 @@
 %----------------------------------------
 %	PACKAGES AND DOCUMENT CONFIGURATIONS
 %---------------------------------------
+
 \documentclass[paper=a4, fontsize=12pt]{article} 		% A4 paper and 11pt font size
 \usepackage[T1]{fontenc} 								% Use 8-bit encoding that has 256 glyphs
 %\usepackage{fourier}		 							% Use the Adobe Utopia font for the document 
@@ -50,6 +51,10 @@
 %\numberwithin{figure}{section} 						% Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2)
 \numberwithin{table}{section} 							% Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
 \setlength\parindent{0pt} 								% Removes all indentation from paragraphs
+
+\usepackage{listings}									% http://ctan.org/pkg/listings
+\renewcommand{\lstlistingname}{Codigo}	
+
 %\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 		% Create horizontal rule command with 1 argument of height
 %%%%%%%%%%%%%%%%%%%%
 %Title Section
@@ -69,9 +74,8 @@ Sebastian \textsc{Zapata}\\
 \texttt{sebastzapata93@gmail.com }\\
 \texttt{PGP KEY ID: 0xfffff}
 \and 
-Jorge Mario \textsc{Gil}\\
-\texttt{jorgemario.gil@utp.edu.co}\\
-\texttt{PGP KEY ID: 0xfffff}
+Francisco \textsc{Gallego}\\
+\texttt{fgallego@utp.edu.co}
 } 												       % End of  Author name
 \date{}    						                       % Date for the report, this will hide the \today.
 
@@ -79,7 +83,7 @@ Jorge Mario \textsc{Gil}\\
 \maketitle                      			           % Insert the title, author and date
 \begin{center}
 \begin{tabular}{l r}								   % two column to
-Fecha de Entrega: & Agosto, 2016 \\				   % Ramiro's Details.
+Fecha de Entrega: & \textbf{22} Septiembre\footnote{El modulo fue presentado en la semana del 19 al 23 de Septiembre, fecha en la que se calificaba sobre \textbf{4.5} }, 2016 \\				   % Ramiro's Details.
 Profesor: & Ing.Msc(c) Ramiro Andres Barrios Valencia
 \end{tabular}
 \end{center}
@@ -88,49 +92,184 @@ Profesor: & Ing.Msc(c) Ramiro Andres Barrios Valencia
 %%%%%%%%%%%	
 \section{Objetivos}
 \begin{itemize}
-  \item Desarrollar la unidad de control para la generación de mensajes a aravés del arreglo de cuatro display de siete segmentos.
+  \item Desarrollar la Unidad de Control para la utilizacion del arreglo de displays de siete segmentos.
   \item Desarrollar modulo para la conversion para pasar a BCD. 
-  
 \end{itemize}
 $\\$
 %%%%%%%%%%%	
 % Theory Marc! 
 %%%%%%%%%%%	
 \section{Marco Teórico}
+
+Para desarrollar el modulo número dos del proyecto lo primero que realizamos es verificar en la hoja del fabricante las conexiones y el tipo de configuracion utilizada en la placa de desarrollo \textbf{Nexys2}. Al revisar el Datasheet y manual encontramos que la placa contiene 4 displays de 7 segmentos y punto decimal(\textit{dp})  en la configuracion de anodo común lo cual implica que todos los anodos de los leds que conforman el display este conectados a un punto en común como se aprecia en la figura \ref{fig:catodo} , para encender un solo led necesitaremos un valor logico de \textbf{\textit{0}} para cerrar el circuito. 
 \begin{figure}[H]
   \centering
-     \includegraphics[width=0.5\textwidth]{btn1.png}
+     \includegraphics[scale=0.5]{imgs/catodo.png}
+  \caption{Esquema Catodo Común.}
+    \label{fig:catodo}
+\end{figure}
+Revisando el esquematico de la tarjeta de desarrollo sabemos que la activacion de los displays se da por la saturación del transistores pnp como se observa en la siguiente figura \ref{fig:esquema} :
+\begin{figure}[H]
+  \centering
+     \includegraphics[scale=0.5]{imgs/configuracion.png}
   \caption{Esquema provisto en el esquemático, 4 pulsadores.}
-    \label{fig:btn}
+    \label{fig:esquema}
+\end{figure}
+Los displays de 7 segmentos se encuentran en la configuración de ánodo común, un \textbf{0} se utiliza para encendido y un \textbf{1} para apagado (lógica negativa). Al representar los números usaremos una codificacion de 4 bits que permiten los 10 digitos (del \textit{0 al 9}),y asi poder mostrar el digito en un visualizador de siete segmentos siendo necesario decodificar el valor numérico según el patrón de LEDs indicado,  se tiene un carácter al cual se le asigna un valor numérico (codificación) para tratar con el digitalmente, posteriormente se transforma al patrón de LEDs correspondiente (decodificación) como se puede observar en el listing \ref{decodificador}. El número que se recibe en 4 bits codificado se decodifica a su valor correspondiente donde prenderemos o apagaremos los 8 leds del display.
+\begin{listing}[H]
+	\begin{minted}{vhdl}
+
+entity decoder_arch is
+    Port ( numero : in  STD_LOGIC_VECTOR(3 downto 0);
+           segment : out  STD_LOGIC_VECTOR(7 downto 0));
+end decoder_arch;
+architecture Behavioral of decoder_arch is
+begin
+	process(numero) begin
+	case numero is
+		when "0000" => segment <= "00000011"; --0
+		when "0001" => segment <= "10011111"; --1
+		when "0010" => segment <= "00100101"; --2
+		when "0011" => segment <= "00001101"; --3
+		when "0100" => segment <= "10011001"; --4
+		when "0101" => segment <= "01001001"; --5
+		when "0110" => segment <= "01000001"; --6
+		when "0111" => segment <= "00011111"; --7
+		when "1000" => segment <= "00000001"; --8
+		when "1001" => segment <= "00001001"; --9
+		when others => segment <= "00000011"; -- Nada
+	end case;
+end process;
+end Behavioral;
+
+\end{minted}
+\caption{Decodificador de 4 bits.}
+    \label{decodificador}
+\end{listing}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{DECIMAL} & \textbf{BINARIO} \\ \hline
+0                & 0001             \\ \hline
+1                & 0001             \\ \hline
+2                & 0010             \\ \hline
+3                & 0011             \\ \hline
+4                & 0100             \\ \hline
+5                & 0101             \\ \hline
+6                & 0110             \\ \hline
+7                & 0111             \\ \hline
+8                & 1000             \\ \hline
+9                & 1001             \\ \hline
+\end{tabular}
+\caption{Valores Correspondientes de Binario a Bcd}
+\label{my-label}
+\end{table}
+Una vez hemos construido el modulo que se encarga de decodificar el valor  que queremos mostrar en los displays necesitamos saber como seleccionar el display adecuado; para esto utilizamos un multiplexor de 4 bits. un multiplexor o selector de datos es un circuito lógico que acepta varias entradas y solamente permite a una de ellas alcanzar la salida. La figura \ref{fig:mux} muestra el diagrama de un multiplexor, donde se observa que la salida Z puede tomar el valor de A o B, pero no de ambos a la vez, en base al valor del parámetro de selección $S0$. Nosotros hemos escrito el codigo que se encarga de recibir cual sera el modulo que seleccionemos \textit{(\textbf{selectorin})} una vez hecho esto lo que nosotros tenemos que hacer es habilitar con un 0 el display requerido y pasarle el valor decodificado El listing \ref{mux2}
+\begin{figure}[H]
+  \centering
+     \includegraphics[scale=0.2]{imgs/MUX.png}
+  \caption{Multiplexor 2 a 1.}
+    \label{fig:mux}
 \end{figure}
 
+\begin{listing}[H]
+	\begin{minted}{vhdl}
+entity mux7s_arch is
+    Port ( d0 : in  STD_LOGIC_VECTOR(3 downto 0);
+           d1 : in  STD_LOGIC_VECTOR(3 downto 0);
+           d2 : in  STD_LOGIC_VECTOR(3 downto 0);
+           d3 : in  STD_LOGIC_VECTOR(3 downto 0);
+           selectorin : in  STD_LOGIC_VECTOR(3 downto 0);
+           numero : out  STD_LOGIC_VECTOR(3 downto 0));
+end mux7s_arch;
 
-\section{Control Modulo de Siete Segmentos}
-\section{Código VHDL}
-Descripción del Pseudo código para el módulo anti rebote:
-\begin{minted}{vhdl}
- 1 Setup a counter variable, initialise to zero.
- 2 Setup a regular sampling event, perhaps using a timer. Use a period of about 1ms.
+architecture Behavioral of mux7s_arch is
+begin
+	process(selectorin,d0,d1,d2,d3) begin
+		case selectorin is
+			when "1110" =>
+				numero<=d0;
+			when "1101" =>
+				numero<=d1;
+			when "1011" =>
+				numero<=d2;
+			when "0111" =>
+				numero<=d3;
+			when others =>
+				numero<=d0;
+		end case;
+	end process;
+end Behavioral;
 \end{minted}
-$$\\$$
-$$\\$$
-$$\\$$
-$$\\$$
-$$\\$$
-$$\\$$
-$$\\$$
-$$\\$$
-%\inputminted{vhdl}{./Code/debounce.vhd}
-$$\\$$
-$$\\$$
-$$\\$$
-$$\\$$
-$$\\$$
-$$\\$$
-\section{Prácticas Experimentales}
-Se realizaran pruebas sobre la placa nexys2 para verificar que el programa realiza la tarea necesaria.
+\caption{Decodificador de 4 bits.}
+    \label{mux2}
+\end{listing}
 
+Pero existe un problema y es que nosotros solo podremos visualizar un display a la vez, es decir tendremos que hacer un refresco por cada display de al menos \textbf{4ms} para engañar la retina del ojo humano utilizando la frecuencia correcta, se llega a la ilusión de que hay cuatro dígitos distintos y encendidos al mismo tiempo si son 4 displays en total sera \textbf{16ms}. Este efecto es similar al comentado por el profe ramiro donde un vídeo esta compuesto de muchas imágenes sucesivas y a cierta frecuencia el ojo ve en movimiento. Una frecuencia de \textbf{250kHz} es más que suficiente para generar este efecto, por lo cual se utiliza el divisor creado en el modulo uno VHDL, que se presenta a continuación. 
+
+\begin{listing}[H]
+	\begin{minted}{vhdl}
+entity selector_arch is
+    Port ( clk : in  STD_LOGIC;
+           salida : out  STD_LOGIC_VECTOR(3 downto 0):="1110");
+end selector_arch;
+
+architecture Behavioral of selector_arch is
+
+signal contador : integer range 0 to 250000 := 0;
+signal ciclos : integer range 0 to 3 :=0;
+begin
+	process(clk) begin
+		if rising_edge(clk) then
+			if contador = 250000 then
+				if ciclos = 0 then
+					salida<="1101";
+					ciclos<=ciclos+1;
+					end if;
+				if ciclos = 1 then
+					salida<="1011";
+					ciclos<=ciclos+1;
+					end if;
+				if ciclos = 2 then
+					salida<="0111";
+					ciclos<=ciclos+1;
+					end if;
+				if ciclos = 3 then
+					salida<="1110";
+					ciclos<=0;
+					end if;
+				contador<=0;
+			else
+				contador<= contador+1;
+			end if;
+		end if;
+	end process;
+end Behavioral;
+\end{minted}
+\caption{Divisor de Frecuencia 250kHz.}
+    \label{mux2}
+\end{listing}
+
+Físicamente para realizar el impacto sobre la fpga debemos especificar cuales son las conexiones físicas en la fpga\footnote{Este fue uno de nuestros problemas al impactar pues al momento de mapear los pines reales olvidamos pinear nuestra señal de reloj.}, ademas también están especificadas en la tarjeta. véase figura \ref{Sw1} , figura \ref{Sw2}.
+\begin{figure}[H]
+  \centering
+     \includegraphics[scale=0.4]{imgs/sws.png}
+  \caption{Esquema provisto en el esquemático, 4 pulsadores.}
+    \label{Sw1}
+\end{figure}
+\begin{figure}[H]
+  \centering
+     \includegraphics[scale=0.5]{imgs/sws.jpg}
+  \caption{Esquema provisto en el esquemático, 4 pulsadores.}
+    \label{Sw2}
+\end{figure}
+
+\section{Errores Comunes}
+En este modulo tuvimos muchos problemas, apesar de ser sencillo en la finalizacion algunas veces siempre nos aparecia conexiones indefinidas y desconectadas. Toco realizar una revision exaustiva de todo el codigo, para determinar por que no se conectaban.
+Tiempo despues al querer impactar en la fpga olvidamos pinear la señal mas importante de todas que es la que sincroniza todas las operaciones, hablamos de la señal del CLK. 
 \section{Anexos}
-los demás archivos son adicionales que resuelven la misma implementación, se encuentran en el repositorio \texttt{github.com\/heticor915\/DigitalElectronicsLab\/tree\/master\/Reports\/Module2\/}
+los demás archivos son adicionales que resuelven la misma implementación, se encuentran en el \fnurl{repositorio}{https://github.com/heticor915/DigitalElectronicsLab/tree/master/Reports/Module2}
 \textit{Nota}: Las referencias utilizadas se encuentran en los pies de página. Si requiere de manera detallada estas contacte con \emph{miembros del equipo.}
 \end{document}
