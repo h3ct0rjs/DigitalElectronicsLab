@@ -1,0 +1,257 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Original author:
+% Linux and Unix Users Group at Virginia Tech Wiki
+% (https://vtluug.org/wiki/Example_LaTeX_chem_lab_report)
+% Modified by: Hector F. Jimenez S, for the Digital Electronics Laboratory.
+% License:
+% CC BY-NC-SA 3.0 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------
+%   PACKAGES AND DOCUMENT CONFIGURATIONS
+%---------------------------------------
+
+\documentclass[paper=a4, fontsize=12pt]{article}        % A4 paper and 11pt font size
+\usepackage[T1]{fontenc}                                % Use 8-bit encoding that has 256 glyphs
+%\usepackage{fourier}                                   % Use the Adobe Utopia font for the document 
+\usepackage[spanish,english]{babel}                     % Spanish Language, templates uses some sections in english.
+\selectlanguage{spanish}                                % main language.
+\PassOptionsToPackage{spanish}{babel}
+%\renewcommand{\figurename}{Figura}                     % Force rename of figure.
+%\renewcommand{\figurename}{Fig.}
+\usepackage[figurename=Fig.]{caption}
+\usepackage[utf8]{inputenc}                             % tildes for spanish language.
+\usepackage{amsmath,amsfonts,amsthm}                    % Math packages.
+\usepackage{minted}                                     % For syntax highlighting.
+\usepackage{float}                                      % Image will be in the same place as you want.!!! x-/
+\usepackage{sectsty}                                    % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape}        % Make all sections centered, the default font and small caps
+\usepackage{hyperref}
+\hypersetup{                                            %Setups the false color and borders.
+    colorlinks=false,
+    pdfborder={0 0 0},
+}
+\newcommand\fnurl[2]{%                                  % set a simple and quick footnote command and include url.
+\href{#2}{#1}\footnote{\url{#2}}%   
+}
+\usepackage{graphicx}                                   % Import easyly images.
+\graphicspath{ {./images/} }                            % Where to look for the images.
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}              % Graphics Extension to be used
+\usepackage[notes,backend=biber]{biblatex-chicago}      % Bibliography and references.
+\bibliography{biblio}                                   % bibliography filename.
+\usepackage{fancyhdr}                                   % Custom headers and footers
+\pagestyle{fancyplain}                                  % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{}                                            % No page header
+\fancyfoot[L]{}                                         % Empty left footer
+\fancyfoot[C]{}                                         % Empty center footer
+\fancyfoot[R]{\thepage}                                 % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt}                      % Remove header underlines
+\renewcommand{\footrulewidth}{0pt}                      % Remove footer underlines
+\setlength{\headheight}{13.6pt}                         % Customize the height of the header
+\numberwithin{equation}{section}                        % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section}                         % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2)
+\numberwithin{table}{section}                           % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\setlength\parindent{0pt}                               % Removes all indentation from paragraphs
+
+\usepackage{listings}                                   % http://ctan.org/pkg/listings
+\renewcommand{\lstlistingname}{Codigo}  
+
+%\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}        % Create horizontal rule command with 1 argument of height
+%%%%%%%%%%%%%%%%%%%%
+%Title Section
+%%%%%%%%%%%%%%%%%%%%%
+\title{Desarrollo de un Turnero Digital\\ 
+Usando FPGA's \\
+Laboratorio de Electrónica Digital\\Módulo: 3, RS232}           % Title
+%\horrule{0.5pt} \\[0.4cm]                              % Thin top horizontal rule  Title rule
+%\huge Assignment Title \\                              % The assignment title
+%\horrule{2pt} \\[0.5cm]                                % Thick bottom horizontal rule
+\author{                                                % Authors begin.
+Héctor F. \textsc{Jiménez S.}\\
+\texttt{hfjimenez@utp.edu.co} \\
+\texttt{PGP KEY ID: 0xB05AD7B8}
+\and
+Sebastian \textsc{Zapata}\\
+\texttt{sebastzapata93@gmail.com }\\
+\texttt{PGP KEY ID: 0xfffff}
+\and 
+Francisco \textsc{Gallego}\\
+\texttt{juanfran16@utp.edu.co}
+}                                                      % End of  Author name
+\date{}                                                % Date for the report, this will hide the \today.
+
+\begin{document}
+\maketitle                                             % Insert the title, author and date
+\begin{center}
+\begin{tabular}{l r}                                   % two column to
+Fecha de Entrega: & \textbf{20} Octubre,2016 \\                % Ramiro's Details.
+Profesor: & Ing.Msc(c) Ramiro Andres Barrios Valencia
+\end{tabular}
+\end{center}
+%%%%%%%%%%% 
+% Let's start the document.
+%%%%%%%%%%% 
+\section{Objetivos}
+\begin{itemize}
+  \item Desarrollar un modulo de comunicación utilizando el protocolo Rs232, y vhdl.
+\end{itemize}
+$\\$
+%%%%%%%%%%% 
+% Theory Marc! 
+%%%%%%%%%%% 
+\section{Marco Teórico}
+En la actualidad existen una gran cantidad de formas de comunicación que hacen que sea posible el intercambio de datos entre 2 o más dispositivos electrónicos, para que esto suceda los dispositivos deben elegir un protocolo el cual permiten establecer los parámetros de la misma. El protocolo \emph{Rs232} también conocido como EIA/TIA RS-232C designa una norma para el intercambio de datos binarios que se enviaran en forma serial, este tipo de comunicación en serie implica el envío de una serie de pulsos digitales de ida y vuelta entre dispositivos a una velocidad de transferencia mutuamente acordada.
+
+Con el fin de hacer una comunicación serial, los dos dispositivos deben ponerse de acuerdo en los siguientes parámetros:
+\begin{enumerate}
+\item Velocidad a la que se envía, y leen los datos.
+\item Los niveles de tensión que representan un 1 o un 0.
+\item El significado de los niveles de tensión; Nivel de tensión alto es un \textbf{1} y un nivel de  tensión bajo representa un \textbf{0}, o lógica inversa.
+\end{enumerate}
+
+\begin{figure}[H]
+  \centering
+     \includegraphics[scale=0.7]{imgs/x.jpg}
+  \caption{Interfaz Serial Usb-Db9.}
+    \label{fig:rsserial}
+\end{figure}
+
+Para la comunicación entre ambos, ademas de los parámetros mencionados anteriormente es necesario usar una interfaz serial, en el mercado hay varias soluciones que se adaptan dependiendo el tipo de puerto y entrada por la cual enviaremos, como se muestra en la figura \ref{fig:rsserial}  la solucion tambien se puede embeber en el mismo cable.
+
+Una interfaz rs232 físicamente requiere :
+\begin{itemize}
+\item Una conexión a tierra común, ambos dispositivos tienen un punto de referencia.
+\item Un cable para el remitente para enviar datos al receptor (línea de transmisión para el remitente conocido como \textbf{TX}).
+\item Un cable para el remitente para recibir datos  (línea de recepcion conocido como \textbf{RX}), véase la figura\ref{fig:hard}. \fnurl{SparkFun}{https://learn.sparkfun.com/tutorials/serial-communication}.
+\end{itemize}
+\begin{figure}[H]
+  \centering
+     \includegraphics[scale=0.6]{imgs/comunicacion.png}
+  \caption{Hardware necesario para conexion asincrona.}
+    \label{fig:hard}
+\end{figure}
+
+Para realizar el envió de comunicación el protocolo rs232 sigue una maquina de estado que se resume en los siguientes pasos:
+\begin{enumerate}
+\item El transmisor envia un \textbf{"idle" (="1")}  cuando esta en reposo.
+\item El transmisor enviara un bit de inicio \textbf{"start" (="0")} que indica el comienzo de la transmision de datos.
+\item Se envian los 8 bits de informacion
+\item El transmisor envia un bit que indica la parada de cada byte.\textbf{"stop" (="1")} \footnote{Vease la figura \ref{fig:senal}}
+\end{enumerate}
+
+\begin{figure}[H]
+  \centering
+     \includegraphics[scale=0.6]{imgs/xx.png}
+  \caption{Hardware necesario para conexion asincrona.}
+    \label{fig:senal}
+\end{figure}
+Para desarrollar este modulo se crearon dos partes , la del receptor y el transmisor, cada uno se encarga de su tarea de enviar los datos serializado, recibirlos. 
+
+El codigo implementado se presenta en las secciones de codigo \ref{rx}, \ref{tx}.
+\begin{listing}[H]
+    \begin{minted}{vhdl}
+    process(clk,clk_enable,rx) begin
+        if rising_edge(clk) then
+            rx_temp<=rx;
+            if clk_enable = '1' then
+                case rx_state is
+                    when idle=>
+                        data_ready<='0';
+                        if rx_temp='0' then
+                            rx_data<=(others=>'1');
+                            rx_state<=data;
+                        end if;
+                    when data=>
+                        data_ready<='0';
+                        rx_data<= (others=>'1');
+                        if rx_temp='1' then
+                            rx_parity_bit<=not(rx_parity_bit);
+                        end if;
+                        rx_out_temp(rx_data_counter)<=rx_temp;
+                        if rx_data_counter=7 then
+                            rx_data_counter<=0;
+                            rx_state<=parity_state;
+                        else
+                            rx_data_counter<=rx_data_counter+1;
+                        end if;
+                    when parity_state=>
+                        data_ready<='0';
+                        rx_data<= (others=>'1');
+                        if rx_parity_bit=rx_temp then
+                            data_enable<='1';
+                        else
+                            data_enable<='0';
+                        end if;
+                        rx_state<=stop1;
+                    when stop1=>
+                        data_ready<='0';
+                        rx_data<= (others=>'1');
+                        rx_state<=stop2;
+                    when stop2=>
+                        if data_enable='1' then
+                            data_ready<='1';
+                            rx_data<=rx_out_temp;
+                        else
+                            data_ready<='0';
+                            rx_data<= (others=>'1');
+                        end if;
+                        rx_parity_bit<='1';
+                        rx_state<=idle;
+                        
+                    end case;
+                end if;
+        end if;
+    end process;
+\end{minted}
+\caption{Modulo de Recepcion RX.}
+    \label{rx}
+\end{listing}
+
+
+\begin{listing}[H]
+    \begin{minted}{vhdl}
+process(clk,clk_enable) begin
+        if rising_edge(clk) then
+            if clk_enable = '1' then
+                tx_data_temp<=tx_data;
+                case tx_state is
+                    when idle=>
+                        if tx_start = '1' then
+                            tx <= uart_start;
+                            tx_state <= data;
+                        else
+                            tx<=uart_idle;
+                        end if;
+                    when data=>
+                        tx <= tx_data_temp(tx_data_counter);
+                        if tx_data_temp(tx_data_counter)='1' then
+                            tx_parity_bit<=not (tx_parity_bit);
+                        end if;
+                        if tx_data_counter = 7 then
+                            tx_data_counter<=0;
+                            tx_state<=parity_state;
+                        else
+                            tx_data_counter<=tx_data_counter+1;
+                        end if;
+                    when parity_state=>
+                        tx <= tx_parity_bit;
+                        tx_state <=stop1;
+                    when stop1=>
+                        tx <=uart_idle;
+                        tx_state<=stop2;
+                    when stop2=>
+                        tx <=uart_idle;
+                        tx_parity_bit<='1';
+                        tx_state<=idle;
+                end case;
+            end if;
+        end if;
+    end process;
+\end{minted}
+\caption{Modulo de Transmision TX uart.}
+    \label{tx}
+\end{listing}
+
+\section{Anexos}
+los demás archivos son adicionales que resuelven la misma implementación, se encuentran en el \fnurl{repositorio}{https://github.com/heticor915/DigitalElectronicsLab/tree/master/Reports/Module3}
+\textit{Nota}: Las referencias utilizadas se encuentran en los pies de página. Si requiere de manera detallada estas contacte con \emph{miembros del equipo.}
+\end{document}
