@@ -1,3 +1,4 @@
+#-*-coding: utf-8 -*-
 import pygame
 import serial
 
@@ -16,10 +17,15 @@ pygame.display.set_caption("Modulo A")
 
 if __name__ == '__main__':
 	#serial
-	s=serial.Serial('COM5',9600,parity=serial.PARITY_ODD,timeout=1,
+	#s=serial.Serial('COM5',9600,parity=serial.PARITY_ODD,timeout=1,
+    #        stopbits=serial.STOPBITS_TWO,
+    #        bytesize=serial.EIGHTBITS
+	#		)		Windows.
+	s=serial.Serial('/dev/pts/3',9600,rtscts=True,dsrdtr=True,parity=serial.PARITY_ODD,timeout=1,
             stopbits=serial.STOPBITS_TWO,
             bytesize=serial.EIGHTBITS
 			)
+
 	turn="s"
 	prev="a"
 	#pygame
@@ -45,6 +51,7 @@ if __name__ == '__main__':
 				if event.key == pygame.K_a:
 					if activado==0:
 						x=s.write(prev)
+
 						print ("Recibo : -- nuevo turno ")
 						activado=1
 						turno-=1
@@ -59,5 +66,5 @@ if __name__ == '__main__':
 		if conteo==800 and activado==1:
 			conteo=0
 			activado=0
-	
-		pygame.display.flip()		
+
+		pygame.display.flip()

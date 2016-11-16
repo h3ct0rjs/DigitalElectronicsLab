@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pygame
 import serial
 
@@ -17,7 +18,7 @@ pygame.display.set_caption("Generador De Turnos")
 if __name__ == '__main__':
 	#serial
 	pygame.display.set_caption("Generador de turnos")
-	s=serial.Serial('COM4',9600,parity=serial.PARITY_ODD,timeout=1,
+	s=serial.Serial('/dev/pts/6',9600,rtscts=True,dsrdtr=True,parity=serial.PARITY_ODD,timeout=1,
             stopbits=serial.STOPBITS_TWO,
             bytesize=serial.EIGHTBITS
 			)
@@ -62,4 +63,4 @@ if __name__ == '__main__':
 			conteo=0
 			activado=0
 		pantalla.blit(letramed.render("Ultimo turno generado:  "+str(turnos),0,AZUL),(ANCHO/2-155,ALTO-50))
-		pygame.display.flip()		
+		pygame.display.flip()

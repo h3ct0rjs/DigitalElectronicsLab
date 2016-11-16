@@ -1,3 +1,4 @@
+#-*- coding :utf-8 -*-
 import pygame
 import serial
 
@@ -17,25 +18,31 @@ pygame.display.set_caption("Turnero")
 if __name__ == '__main__':
 	#serial
 	serverToGenerator=serial.Serial(
-			port='COM1',
+			port='/dev/pts/6',
 			baudrate=9600,
+			rtscts=True,
+			dsrdtr=True,
             timeout=1,
             parity=serial.PARITY_ODD,
             stopbits=serial.STOPBITS_TWO,
-            bytesize=serial.EIGHTBITS
+			bytesize=serial.EIGHTBITS
 			)
 	serverToBoxA=serial.Serial(
-			port='COM2',
+			port='/dev/pts/3',
 			baudrate=9600,
+			rtscts=True,
+			dsrdtr=True,
             timeout=1,
             parity=serial.PARITY_ODD,
             stopbits=serial.STOPBITS_TWO,
             bytesize=serial.EIGHTBITS
 			)
 	serverToBoxB=serial.Serial(
-			port='COM3',
+			port='/dev/pts/2',
 			baudrate=9600,
-            timeout=1,
+            rtscts=True,
+			dsrdtr=True,
+			timeout=1,
             parity=serial.PARITY_ODD,
             stopbits=serial.STOPBITS_TWO,
             bytesize=serial.EIGHTBITS
@@ -126,12 +133,10 @@ if __name__ == '__main__':
 			reachtop=1
 			turnos=1
 
-			
+
 		#pygame
 		pantalla.fill(BLANCO)
 		pantalla.blit(letramed.render("TURNO",0,NEGRO),(ANCHO/2-60,20))
 		pantalla.blit(letragra.render(str(displayturnos),0,ROJO),(ANCHO/2-65,50))
 		pantalla.blit(letramed.render("MODULO : "+modulo,0,NEGRO),(ANCHO/2-100,ALTO/2+130))
-		pygame.display.flip()		
-
-
+		pygame.display.flip()

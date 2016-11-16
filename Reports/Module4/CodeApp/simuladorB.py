@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pygame
 import serial
 
@@ -16,7 +17,12 @@ pygame.display.set_caption("Modulo B")
 
 if __name__ == '__main__':
 	#serial
-	s=serial.Serial('COM6',9600,parity=serial.PARITY_ODD,timeout=1,
+	#s=serial.Serial('/dev/pts/2',9600,parity=serial.PARITY_ODD,timeout=1,
+    #        stopbits=serial.STOPBITS_TWO,
+    #        bytesize=serial.EIGHTBITS
+	#		)			#Windows.
+	#linux support with socat emulator. 
+	s=serial.Serial('/dev/pts/2',9600,rtscts=True,dsrdtr=True,parity=serial.PARITY_ODD,timeout=1,
             stopbits=serial.STOPBITS_TWO,
             bytesize=serial.EIGHTBITS
 			)
@@ -39,13 +45,13 @@ if __name__ == '__main__':
 				if event.key == pygame.K_s:
 					if activado==0:
 						x=s.write(turn)
-						print ("Recibo : -- nuevo turno ")
+						print ("Recibo : -- nuevo turno,siguiente")
 						activado=1
 						turno+=1
 				if event.key == pygame.K_a:
 					if activado==0:
 						x=s.write(prev)
-						print ("Recibo : -- nuevo turno ")
+						print ("Recibo : -- nuevo turno,anterior ")
 						activado=1
 						turno-=1
 		pantalla.fill(BLANCO)
@@ -59,5 +65,5 @@ if __name__ == '__main__':
 		if conteo==800 and activado==1:
 			conteo=0
 			activado=0
-	
-		pygame.display.flip()		
+
+		pygame.display.flip()
