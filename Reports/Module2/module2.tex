@@ -10,11 +10,19 @@
 %   PACKAGES AND DOCUMENT CONFIGURATIONS
 %---------------------------------------
 
+<<<<<<< HEAD
 \documentclass[paper=a4, fontsize=12pt]{article}        % A4 paper and 11pt font size
 \usepackage[T1]{fontenc}                                % Use 8-bit encoding that has 256 glyphs
 %\usepackage{fourier}                                   % Use the Adobe Utopia font for the document 
 \usepackage[spanish,english]{babel}                     % Spanish Language, templates uses some sections in english.
 \selectlanguage{spanish}                                % main language.
+=======
+\documentclass[paper=a4, fontsize=12pt]{article} 		% A4 paper and 11pt font size
+\usepackage[T1]{fontenc} 								% Use 8-bit encoding that has 256 glyphs
+%\usepackage{fourier}		 							% Use the Adobe Utopia font for the document 
+\usepackage[spanish,english]{babel}						% Spanish Language, templates uses some sections in english.
+\selectlanguage{spanish}								% main language.
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 \PassOptionsToPackage{spanish}{babel}
 %\renewcommand{\figurename}{Figura}                     % Force rename of figure.
 %\renewcommand{\figurename}{Fig.}
@@ -33,6 +41,7 @@
 \newcommand\fnurl[2]{%                                  % set a simple and quick footnote command and include url.
 \href{#2}{#1}\footnote{\url{#2}}%   
 }
+<<<<<<< HEAD
 \usepackage{graphicx}                                   % Import easyly images.
 \graphicspath{ {./images/} }                            % Where to look for the images.
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}              % Graphics Extension to be used
@@ -56,6 +65,31 @@
 \renewcommand{\lstlistingname}{Codigo}  
 
 %\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}        % Create horizontal rule command with 1 argument of height
+=======
+\usepackage{graphicx}									% Import easyly images.
+\graphicspath{ {./images/} }							% Where to look for the images.
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}				% Graphics Extension to be used
+\usepackage[notes,backend=biber]{biblatex-chicago}		% Bibliography and references.
+\bibliography{biblio}									% bibliography filename.
+\usepackage{fancyhdr} 									% Custom headers and footers
+\pagestyle{fancyplain} 									% Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} 											% No page header
+\fancyfoot[L]{} 										% Empty left footer
+\fancyfoot[C]{} 										% Empty center footer
+\fancyfoot[R]{\thepage} 								% Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} 						% Remove header underlines
+\renewcommand{\footrulewidth}{0pt} 						% Remove footer underlines
+\setlength{\headheight}{13.6pt} 					    % Customize the height of the header
+\numberwithin{equation}{section}						% Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section} 						% Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2)
+\numberwithin{table}{section} 							% Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\setlength\parindent{0pt} 								% Removes all indentation from paragraphs
+
+\usepackage{listings}									% http://ctan.org/pkg/listings
+\renewcommand{\lstlistingname}{Codigo}	
+
+%\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 		% Create horizontal rule command with 1 argument of height
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 %%%%%%%%%%%%%%%%%%%%
 %Title Section
 %%%%%%%%%%%%%%%%%%%%%
@@ -76,14 +110,24 @@ Sebastian \textsc{Zapata}\\
 \and 
 Francisco \textsc{Gallego}\\
 \texttt{juanfran16@utp.edu.co}
+<<<<<<< HEAD
 }                                                      % End of  Author name
 \date{}                                                % Date for the report, this will hide the \today.
+=======
+} 												       % End of  Author name
+\date{}    						                       % Date for the report, this will hide the \today.
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 
 \begin{document}
 \maketitle                                             % Insert the title, author and date
 \begin{center}
+<<<<<<< HEAD
 \begin{tabular}{l r}                                   % two column to
 Fecha de Entrega: & \textbf{22} Septiembre\footnote{El modulo fue presentado en la semana del 19 al 23 de Septiembre, fecha en la que se calificaba sobre \textbf{4.5} }, 2016 \\                  % Ramiro's Details.
+=======
+\begin{tabular}{l r}								   % two column to
+Fecha de Entrega: & \textbf{22} Septiembre\footnote{El modulo fue presentado en la semana del 19 al 23 de Septiembre, fecha en la que se calificaba sobre \textbf{4.5} }, 2016 \\				   % Ramiro's Details.
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 Profesor: & Ing.Msc(c) Ramiro Andres Barrios Valencia
 \end{tabular}
 \end{center}
@@ -117,7 +161,11 @@ Revisando el esquematico de la tarjeta de desarrollo sabemos que la activacion d
 \end{figure}
 Los displays de 7 segmentos se encuentran en la configuración de ánodo común, un \textbf{0} se utiliza para encendido y un \textbf{1} para apagado (lógica negativa). Al representar los números usaremos una codificacion de 4 bits que permiten los 10 digitos (del \textit{0 al 9}),y asi poder mostrar el digito en un visualizador de siete segmentos siendo necesario decodificar el valor numérico según el patrón de LEDs indicado,  se tiene un carácter al cual se le asigna un valor numérico (codificación) para tratar con el digitalmente, posteriormente se transforma al patrón de LEDs correspondiente (decodificación) como se puede observar en el listing \ref{decodificador}. El número que se recibe en 4 bits codificado se decodifica a su valor correspondiente donde prenderemos o apagaremos los 8 leds del display.
 \begin{listing}[H]
+<<<<<<< HEAD
     \begin{minted}{vhdl}
+=======
+	\begin{minted}{vhdl}
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 
 entity decoder_arch is
     Port ( numero : in  STD_LOGIC_VECTOR(3 downto 0);
@@ -125,6 +173,7 @@ entity decoder_arch is
 end decoder_arch;
 architecture Behavioral of decoder_arch is
 begin
+<<<<<<< HEAD
     process(numero) begin
     case numero is
         when "0000" => segment <= "00000011"; --0
@@ -139,6 +188,22 @@ begin
         when "1001" => segment <= "00001001"; --9
         when others => segment <= "00000011"; -- Nada
     end case;
+=======
+	process(numero) begin
+	case numero is
+		when "0000" => segment <= "00000011"; --0
+		when "0001" => segment <= "10011111"; --1
+		when "0010" => segment <= "00100101"; --2
+		when "0011" => segment <= "00001101"; --3
+		when "0100" => segment <= "10011001"; --4
+		when "0101" => segment <= "01001001"; --5
+		when "0110" => segment <= "01000001"; --6
+		when "0111" => segment <= "00011111"; --7
+		when "1000" => segment <= "00000001"; --8
+		when "1001" => segment <= "00001001"; --9
+		when others => segment <= "00000011"; -- Nada
+	end case;
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 end process;
 end Behavioral;
 
@@ -175,7 +240,11 @@ Una vez hemos construido el modulo que se encarga de decodificar el valor  que q
 \end{figure}
 
 \begin{listing}[H]
+<<<<<<< HEAD
     \begin{minted}{vhdl}
+=======
+	\begin{minted}{vhdl}
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 entity mux7s_arch is
     Port ( d0 : in  STD_LOGIC_VECTOR(3 downto 0);
            d1 : in  STD_LOGIC_VECTOR(3 downto 0);
@@ -187,6 +256,7 @@ end mux7s_arch;
 
 architecture Behavioral of mux7s_arch is
 begin
+<<<<<<< HEAD
     process(selectorin,d0,d1,d2,d3) begin
         case selectorin is
             when "1110" =>
@@ -201,6 +271,22 @@ begin
                 numero<=d0;
         end case;
     end process;
+=======
+	process(selectorin,d0,d1,d2,d3) begin
+		case selectorin is
+			when "1110" =>
+				numero<=d0;
+			when "1101" =>
+				numero<=d1;
+			when "1011" =>
+				numero<=d2;
+			when "0111" =>
+				numero<=d3;
+			when others =>
+				numero<=d0;
+		end case;
+	end process;
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 end Behavioral;
 \end{minted}
 \caption{Decodificador de 4 bits.}
@@ -210,7 +296,11 @@ end Behavioral;
 Pero existe un problema y es que nosotros solo podremos visualizar un display a la vez, es decir tendremos que hacer un refresco por cada display de al menos \textbf{4ms} para engañar la retina del ojo humano utilizando la frecuencia correcta, se llega a la ilusión de que hay cuatro dígitos distintos y encendidos al mismo tiempo si son 4 displays en total sera \textbf{16ms}. Este efecto es similar al comentado por el profe ramiro donde un vídeo esta compuesto de muchas imágenes sucesivas y a cierta frecuencia el ojo ve en movimiento. Una frecuencia de \textbf{250kHz} es más que suficiente para generar este efecto, por lo cual se utiliza el divisor creado en el modulo uno VHDL, que se presenta a continuación. 
 
 \begin{listing}[H]
+<<<<<<< HEAD
     \begin{minted}{vhdl}
+=======
+	\begin{minted}{vhdl}
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 entity selector_arch is
     Port ( clk : in  STD_LOGIC;
            salida : out  STD_LOGIC_VECTOR(3 downto 0):="1110");
@@ -221,6 +311,7 @@ architecture Behavioral of selector_arch is
 signal contador : integer range 0 to 250000 := 0;
 signal ciclos : integer range 0 to 3 :=0;
 begin
+<<<<<<< HEAD
     process(clk) begin
         if rising_edge(clk) then
             if contador = 250000 then
@@ -246,6 +337,33 @@ begin
             end if;
         end if;
     end process;
+=======
+	process(clk) begin
+		if rising_edge(clk) then
+			if contador = 250000 then
+				if ciclos = 0 then
+					salida<="1101";
+					ciclos<=ciclos+1;
+					end if;
+				if ciclos = 1 then
+					salida<="1011";
+					ciclos<=ciclos+1;
+					end if;
+				if ciclos = 2 then
+					salida<="0111";
+					ciclos<=ciclos+1;
+					end if;
+				if ciclos = 3 then
+					salida<="1110";
+					ciclos<=0;
+					end if;
+				contador<=0;
+			else
+				contador<= contador+1;
+			end if;
+		end if;
+	end process;
+>>>>>>> 0a7a4ea575f0464a8514cbc1e89a6a09edf993ba
 end Behavioral;
 \end{minted}
 \caption{Divisor de Frecuencia 250kHz.}
