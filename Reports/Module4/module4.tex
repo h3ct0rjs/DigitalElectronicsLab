@@ -1,0 +1,186 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Original author:
+% Linux and Unix Users Group at Virginia Tech Wiki
+% (https://vtluug.org/wiki/Example_LaTeX_chem_lab_report)
+% Modified by: Hector F. Jimenez S, for the Digital Electronics Laboratory.
+% License:
+% CC BY-NC-SA 3.0 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%---------------------------------------
+
+\documentclass[paper=a4, fontsize=12pt]{article} 		% A4 paper and 11pt font size
+\usepackage[T1]{fontenc} 								% Use 8-bit encoding that has 256 glyphs
+%\usepackage{fourier}		 							% Use the Adobe Utopia font for the document 
+\usepackage[spanish,english]{babel}						% Spanish Language, templates uses some sections in english.
+\selectlanguage{spanish}								% main language.
+\PassOptionsToPackage{spanish}{babel}
+%\renewcommand{\figurename}{Figura}						% Force rename of figure.
+%\renewcommand{\figurename}{Fig.}
+\usepackage[figurename=Fig.]{caption}
+\usepackage[utf8]{inputenc}								% tildes for spanish language.
+\usepackage{amsmath,amsfonts,amsthm} 					% Math packages.
+\usepackage{minted}										% For syntax highlighting.
+\usepackage{float}										% Image will be in the same place as you want.!!! x-/
+\usepackage{sectsty} 									% Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape}	   	% Make all sections centered, the default font and small caps
+\usepackage{hyperref}
+\hypersetup{											%Setups the false color and borders.
+    colorlinks=false,
+    pdfborder={0 0 0},
+}
+\newcommand\fnurl[2]{%									% set a simple and quick footnote command and include url.
+\href{#2}{#1}\footnote{\url{#2}}%	
+}
+\usepackage{graphicx}									% Import easyly images.
+\graphicspath{ {./images/} }							% Where to look for the images.
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}				% Graphics Extension to be used
+\usepackage[notes,backend=biber]{biblatex-chicago}		% Bibliography and references.
+\bibliography{biblio}									% bibliography filename.
+\usepackage{fancyhdr} 									% Custom headers and footers
+\pagestyle{fancyplain} 									% Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} 											% No page header
+\fancyfoot[L]{} 										% Empty left footer
+\fancyfoot[C]{} 										% Empty center footer
+\fancyfoot[R]{\thepage} 								% Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} 						% Remove header underlines
+\renewcommand{\footrulewidth}{0pt} 						% Remove footer underlines
+\setlength{\headheight}{13.6pt} 					    % Customize the height of the header
+\numberwithin{equation}{section}						% Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section} 						% Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2)
+\numberwithin{table}{section} 							% Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\setlength\parindent{0pt} 								% Removes all indentation from paragraphs
+
+\usepackage{listings}									% http://ctan.org/pkg/listings
+\renewcommand{\lstlistingname}{Codigo}	
+
+%\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 		% Create horizontal rule command with 1 argument of height
+%%%%%%%%%%%%%%%%%%%%
+%Title Section
+%%%%%%%%%%%%%%%%%%%%%
+\title{Desarrollo de un Turnero Digital\\ 
+Usando FPGA's \\
+Laboratorio de Electrónica Digital\\Módulo: 4, Aplicación de Escritorio} 			% Title
+%\horrule{0.5pt} \\[0.4cm] 								% Thin top horizontal rule	Title rule
+%\huge Assignment Title \\ 								% The assignment title
+%\horrule{2pt} \\[0.5cm] 								% Thick bottom horizontal rule
+\author{												% Authors begin.
+Héctor F. \textsc{Jiménez S.}\\
+\texttt{hfjimenez@utp.edu.co} \\
+\texttt{PGP KEY ID: 0xB05AD7B8}
+\and
+Sebastian \textsc{Zapata}\\
+\texttt{sebastzapata93@gmail.com }\\
+\texttt{PGP KEY ID: 0xfffff}
+\and 
+Francisco \textsc{Gallego}\\
+\texttt{juanfran16@utp.edu.co}
+} 												       % End of  Author name
+\date{}    						                       % Date for the report, this will hide the \today.
+
+\begin{document}
+\maketitle                      			           % Insert the title, author and date
+\begin{center}
+\begin{tabular}{l r}								   % two column to
+Fecha de Entrega: & \textbf{16} noviembre,2016 \\				   % Ramiro's Details.
+Profesor: & Ing.Msc(c) Ramiro Andres Barrios Valencia
+\end{tabular}
+\end{center}
+%%%%%%%%%%%	
+% Let's start the document.
+%%%%%%%%%%%	
+\section{Objetivos}
+\begin{itemize}
+  \item Desarrollar el aplicativo de referencia Turno-Puesto de atención.
+\end{itemize}
+$\\$
+%%%%%%%%%%%	
+% Theory Marc! 
+%%%%%%%%%%%	
+\section{Marco Teórico}
+
+En este modulo desarrollamos el aplicativo utilizando como lenguaje de programación \emph{python} que posee soporte para el manejo de comunicaciones utilizando el protocolo rs232, la librería estándar se llama \textbf{\textit{pyserial}}, específicamente para nuestro desarrollado utilizamos la siguientes opciones:
+\begin{enumerate}
+\item 8 bits \textbf{serial.EIGHTBITS}
+\item 2 bits de parada \textbf{serial.STOPBITS\_TWO}
+\item paridad impar \textbf{serial.PARITY\_ODD}
+\item velocidad de \textbf{9600} baudios.
+\end{enumerate}
+
+para nosotros simular el envió de comunicación serial lo realizamos en dos sistemas operativos para windows  utilizamos un emulador de puertos \emph{Virtual Serial Port en modo pair} que nos permite crear virtualmente puertos/dispositivo que utilizara el protocolo RS232. 
+En Gnu-Linux utilizamos \textbf{socat}, un emulador multipropuesta que permite crear dispositivos de comunicaciones virtuales unidireccionales.
+la forma de crear dos dispositivos en Linux es :
+\begin{listing}[H]
+	\begin{minted}{python}
+socat -d -d  pty,raw,echo=0 pty,raw,echo=0
+\end{minted}
+\caption{Creacion de dos dispositivos ubicados en \textbf{/dev/pts/2, /dev/pts/3}.}
+    \label{socats}
+\end{listing}
+
+En este sistema se debe agregar las siguientes librerias a pyserial para poder abrir y acceder al puerto serial : \textbf{rtscts=True,dsrdtr=True}
+
+La idea principal de este modulo era simular como seria la integracion entre el hardware y el aplicativo que se desarrollo, nosotros el aplicativo lo dividimos principalmente en 3 modulos, escritos en 3 scripts diferentes de python  que son : 
+\begin{enumerate}
+\item \textbf{Generador de Turnos}: Es un script en python que se encarga de generar los turnos solicitados por el usuario
+\item \textbf{ModuloA,B}: Es es el aplicativo al que tienen acesso los asesores o mesas que resuelve el turno. 
+\item \textbf{Visualizador de Turnos(\textit{Turnero})}: Es el que se encarga de mostrar el turno actual en pantalla para el publico.
+\end{enumerate}
+Para la interfaz gráfica se utilizo las librerias que dispone python como \textbf{pygame} el cual nos permite de una manera simple y rápida crear ventanas y entornos.
+\begin{figure}[H]
+  \centering
+     \includegraphics[scale=0.38]{imgs/aplicativo.png}
+  \caption{Esquema de Conexión Aplicación Web.}
+    \label{fig:senal}
+\end{figure}
+
+\begin{listing}[H]
+	\begin{minted}{python}
+# -*- coding: utf-8 -*-			
+import pygame		#Importar libreria necesaria
+import serial
+ANCHO=400			#Dimensiones de la ventana
+ALTO=400	
+BLANCO=(255,255,255)#constante de colores
+ROJO=(255,0,0)
+VERDE=(0,255,255)
+AZUL=(0,0,255)
+NEGRO=(0,0,0)
+
+pygame.init()		#objeto que inicializa el entonro	
+pantalla=pygame.display.set_mode([ANCHO,ALTO])#creamos ventana
+pygame.display.set_caption("Generador De Turnos") 
+\end{minted}
+\caption{Creación  de ventanas en todos los scripts.}
+    \label{window}
+\end{listing}
+Teniendo en cuenta esto para cada script lo que nosotros hemos realizado en nuestra aplicación simulada es que el usuario una vez presione la tecla \textbf{n}  utilizamos la opción de eventos que ofrece pygame y enviamos esto por serial a nuestro visualizador. 
+
+\begin{listing}[H]
+	\begin{minted}{python}
+	for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				fin=True
+			elif event.type ==	pygame.KEYUP:
+				if event.key == pygame.K_n:
+					if activado==0:
+						#serial
+						x=s.write(turn)
+						print ("Envio : -- nuevo turno ")
+						#pygame
+						activado=1
+						turnos+=1
+						if turnos==100:
+							turnos=1
+\end{minted}
+\caption{Gestión de eventos, presión de teclas .}
+    \label{presion}
+\end{listing}
+
+Una vez se detecta el evento de la tecla enviamos esto el numero d eturno generado. 
+
+\section{Anexos}
+los demás archivos son adicionales que resuelven la misma implementación, se encuentran en el \fnurl{repositorio}{https://github.com/heticor915/DigitalElectronicsLab/tree/master/Reports/Module4}
+\textit{Nota}: Las referencias utilizadas se encuentran en los pies de página. Si requiere de manera detallada estas contacte con \emph{miembros del equipo.}
+\end{document}
