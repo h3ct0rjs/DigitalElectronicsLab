@@ -1,0 +1,7 @@
+vhdl work "C:\Users\Sebastian\Documents\UNIVERSITY\Electronica Digital\generadorturnos\selector_arch.vhd"
+vhdl work "C:\Users\Sebastian\Documents\UNIVERSITY\Electronica Digital\generadorturnos\mux7s_arch.vhd"
+vhdl work "C:\Users\Sebastian\Documents\UNIVERSITY\Electronica Digital\generadorturnos\decoder_arch.vhd"
+vhdl work "C:\Users\Sebastian\Documents\UNIVERSITY\Electronica Digital\generadorturnos\tx_arch.vhd"
+vhdl work "C:\Users\Sebastian\Documents\UNIVERSITY\Electronica Digital\generadorturnos\siete_segmentos.vhd"
+vhdl work "C:\Users\Sebastian\Documents\UNIVERSITY\Electronica Digital\generadorturnos\Debouncer.vhd"
+vhdl work "C:\Users\Sebastian\Documents\UNIVERSITY\Electronica Digital\generadorturnos\gen_turnos.vhd"

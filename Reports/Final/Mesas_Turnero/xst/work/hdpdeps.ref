@@ -1,0 +1,69 @@
+V3 35
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Debouncer.vhd" 2016/12/08.11:54:18 P.20131013
+EN work/counters_1 1481295528 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Debouncer.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/counters_1/archi 1481295529 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Debouncer.vhd" \
+      EN work/counters_1 1481295528
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/decoder_arch.vhd" 2016/09/30.11:48:32 P.20131013
+EN work/decoder_arch 1481295526 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/decoder_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/decoder_arch/Behavioral 1481295527 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/decoder_arch.vhd" \
+      EN work/decoder_arch 1481295526
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Decoder_turn.vhd" 2016/12/08.11:27:45 P.20131013
+EN work/Decoder_turn 1481295534 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Decoder_turn.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/Decoder_turn/Behavioral 1481295535 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Decoder_turn.vhd" \
+      EN work/Decoder_turn 1481295534
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Mesa_arch.vhd" 2016/12/09.09:52:39 P.20131013
+EN work/Mesa_arch 1481295538 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Mesa_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/Mesa_arch/Behavioral 1481295539 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Mesa_arch.vhd" \
+      EN work/Mesa_arch 1481295538 CP counters_1 CP tx_arch CP rx_arch \
+      CP Decoder_turn CP siete_segmentos
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/mux7s_arch.vhd" 2016/09/30.11:41:56 P.20131013
+EN work/mux7s_arch 1481295524 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/mux7s_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/mux7s_arch/Behavioral 1481295525 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/mux7s_arch.vhd" \
+      EN work/mux7s_arch 1481295524
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/rx_arch.vhd" 2016/10/13.14:42:35 P.20131013
+EN work/rx_arch 1481295532 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/rx_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/rx_arch/Behavioral 1481295533 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/rx_arch.vhd" \
+      EN work/rx_arch 1481295532
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/selector_arch.vhd" 2016/09/30.15:41:22 P.20131013
+EN work/selector_arch 1481295522 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/selector_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/selector_arch/Behavioral 1481295523 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/selector_arch.vhd" \
+      EN work/selector_arch 1481295522
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/siete_segmentos.vhd" 2016/11/12.19:09:51 P.20131013
+EN work/siete_segmentos 1481295536 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/siete_segmentos.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/siete_segmentos/Behavioral 1481295537 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/siete_segmentos.vhd" \
+      EN work/siete_segmentos 1481295536 CP selector_arch CP mux7s_arch \
+      CP decoder_arch
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/tx_arch.vhd" 2016/10/12.15:50:41 P.20131013
+EN work/tx_arch 1481295530 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/tx_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/tx_arch/Behavioral 1481295531 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/tx_arch.vhd" \
+      EN work/tx_arch 1481295530

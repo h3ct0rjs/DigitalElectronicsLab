@@ -1,0 +1,61 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+WARNING:HDLParsers:3607 - Unit work/gen_turnos is now defined in a different file.  It was defined in "G:/generadorturnos/gen_turnos.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/gen_turnos.vhd".
+WARNING:HDLParsers:3607 - Unit work/gen_turnos/Behavioral is now defined in a different file.  It was defined in "G:/generadorturnos/gen_turnos.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/gen_turnos.vhd".
+WARNING:HDLParsers:3607 - Unit work/counters_1 is now defined in a different file.  It was defined in "G:/generadorturnos/Debouncer.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/Debouncer.vhd".
+WARNING:HDLParsers:3607 - Unit work/counters_1/archi is now defined in a different file.  It was defined in "G:/generadorturnos/Debouncer.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/Debouncer.vhd".
+WARNING:HDLParsers:3607 - Unit work/siete_segmentos is now defined in a different file.  It was defined in "G:/generadorturnos/siete_segmentos.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/siete_segmentos.vhd".
+WARNING:HDLParsers:3607 - Unit work/siete_segmentos/Behavioral is now defined in a different file.  It was defined in "G:/generadorturnos/siete_segmentos.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/siete_segmentos.vhd".
+WARNING:HDLParsers:3607 - Unit work/tx_arch is now defined in a different file.  It was defined in "G:/generadorturnos/tx_arch.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/tx_arch.vhd".
+WARNING:HDLParsers:3607 - Unit work/tx_arch/Behavioral is now defined in a different file.  It was defined in "G:/generadorturnos/tx_arch.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/tx_arch.vhd".
+WARNING:HDLParsers:3607 - Unit work/decoder_arch is now defined in a different file.  It was defined in "G:/generadorturnos/decoder_arch.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/decoder_arch.vhd".
+WARNING:HDLParsers:3607 - Unit work/decoder_arch/Behavioral is now defined in a different file.  It was defined in "G:/generadorturnos/decoder_arch.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/decoder_arch.vhd".
+WARNING:HDLParsers:3607 - Unit work/mux7s_arch is now defined in a different file.  It was defined in "G:/generadorturnos/mux7s_arch.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/mux7s_arch.vhd".
+WARNING:HDLParsers:3607 - Unit work/mux7s_arch/Behavioral is now defined in a different file.  It was defined in "G:/generadorturnos/mux7s_arch.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/mux7s_arch.vhd".
+WARNING:HDLParsers:3607 - Unit work/selector_arch is now defined in a different file.  It was defined in "G:/generadorturnos/selector_arch.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/selector_arch.vhd".
+WARNING:HDLParsers:3607 - Unit work/selector_arch/Behavioral is now defined in a different file.  It was defined in "G:/generadorturnos/selector_arch.vhd", and is now defined in "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/selector_arch.vhd".
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/selector_arch.vhd" in Library work.
+Architecture behavioral of Entity selector_arch is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/mux7s_arch.vhd" in Library work.
+Architecture behavioral of Entity mux7s_arch is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/decoder_arch.vhd" in Library work.
+Architecture behavioral of Entity decoder_arch is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/Debouncer.vhd" in Library work.
+Architecture archi of Entity counters_1 is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/siete_segmentos.vhd" in Library work.
+Architecture behavioral of Entity siete_segmentos is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/tx_arch.vhd" in Library work.
+Architecture behavioral of Entity tx_arch is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/gen_turnos.vhd" in Library work.
+Entity <gen_turnos> compiled.
+Entity <gen_turnos> (Architecture <behavioral>) compiled.
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.27 secs
+ 
+--> 
+
+Total memory usage is 217828 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   15 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/xst"
+elaborate
+-ifn gen_turnos.prj
+-ifmt mixed

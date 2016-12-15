@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Mesa_tb_isim_beh.exe" -prj "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Mesa_tb_beh.prj" "work.Mesa_tb" 

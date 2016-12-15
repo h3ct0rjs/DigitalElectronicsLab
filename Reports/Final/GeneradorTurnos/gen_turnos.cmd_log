@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "G:/generadorturnos/gen_turnos.xst" -ofn "G:/generadorturnos/gen_turnos.syr" 

@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/xst"
+elaborate
+-ifn Decoder_turn.prj
+-ifmt mixed

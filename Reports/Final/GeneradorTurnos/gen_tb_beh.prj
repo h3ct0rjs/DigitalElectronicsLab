@@ -1,0 +1,8 @@
+vhdl work "selector_arch.vhd"
+vhdl work "mux7s_arch.vhd"
+vhdl work "decoder_arch.vhd"
+vhdl work "tx_arch.vhd"
+vhdl work "siete_segmentos.vhd"
+vhdl work "Debouncer.vhd"
+vhdl work "gen_turnos.vhd"
+vhdl work "gen_tb.vhd"

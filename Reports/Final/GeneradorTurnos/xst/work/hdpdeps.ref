@@ -1,0 +1,60 @@
+V3 34
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/Debouncer.vhd" 2016/08/26.10:46:08 P.20131013
+EN work/counters_1 1481296370 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/Debouncer.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/counters_1/archi 1481296371 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/Debouncer.vhd" \
+      EN work/counters_1 1481296370
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/decoder_arch.vhd" 2016/09/30.11:48:32 P.20131013
+EN work/decoder_arch 1481296368 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/decoder_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/decoder_arch/Behavioral 1481296369 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/decoder_arch.vhd" \
+      EN work/decoder_arch 1481296368
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/gen_turnos.vhd" 2016/12/09.10:12:28 P.20131013
+EN work/gen_turnos 1481296376 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/gen_turnos.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
+      PB ieee/NUMERIC_STD 1381692181 PB ieee/std_logic_arith 1381692177
+AR work/gen_turnos/Behavioral 1481296377 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/gen_turnos.vhd" \
+      EN work/gen_turnos 1481296376 CP counters_1 CP siete_segmentos CP tx_arch
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/mux7s_arch.vhd" 2016/09/30.11:41:56 P.20131013
+EN work/mux7s_arch 1481296366 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/mux7s_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/mux7s_arch/Behavioral 1481296367 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/mux7s_arch.vhd" \
+      EN work/mux7s_arch 1481296366
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/selector_arch.vhd" 2016/09/30.15:41:22 P.20131013
+EN work/selector_arch 1481296364 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/selector_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/selector_arch/Behavioral 1481296365 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/selector_arch.vhd" \
+      EN work/selector_arch 1481296364
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/siete_segmentos.vhd" 2016/11/12.19:09:52 P.20131013
+EN work/siete_segmentos 1481296372 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/siete_segmentos.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/siete_segmentos/Behavioral 1481296373 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/siete_segmentos.vhd" \
+      EN work/siete_segmentos 1481296372 CP selector_arch CP mux7s_arch \
+      CP decoder_arch
+FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/tx_arch.vhd" 2016/10/13.16:26:48 P.20131013
+EN work/tx_arch 1481296374 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/tx_arch.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/tx_arch/Behavioral 1481296375 \
+      FL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/tx_arch.vhd" \
+      EN work/tx_arch 1481296374
+FL G:/generadorturnos/Debouncer.vhd 2016/08/26.10:46:08 P.20131013
+FL G:/generadorturnos/decoder_arch.vhd 2016/09/30.11:48:32 P.20131013
+FL G:/generadorturnos/gen_turnos.vhd 2016/11/29.18:14:40 P.20131013
+FL G:/generadorturnos/mux7s_arch.vhd 2016/09/30.11:41:56 P.20131013
+FL G:/generadorturnos/selector_arch.vhd 2016/09/30.15:41:22 P.20131013
+FL G:/generadorturnos/siete_segmentos.vhd 2016/11/12.19:09:52 P.20131013
+FL G:/generadorturnos/tx_arch.vhd 2016/10/13.16:26:48 P.20131013

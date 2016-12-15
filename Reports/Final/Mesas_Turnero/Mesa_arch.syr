@@ -1,0 +1,687 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Reading design: Mesa_arch.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Mesa_arch.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Mesa_arch"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : Mesa_arch
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/selector_arch.vhd" in Library work.
+Architecture behavioral of Entity selector_arch is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/mux7s_arch.vhd" in Library work.
+Architecture behavioral of Entity mux7s_arch is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/decoder_arch.vhd" in Library work.
+Architecture behavioral of Entity decoder_arch is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Debouncer.vhd" in Library work.
+Architecture archi of Entity counters_1 is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/tx_arch.vhd" in Library work.
+Architecture behavioral of Entity tx_arch is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/rx_arch.vhd" in Library work.
+Architecture behavioral of Entity rx_arch is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Decoder_turn.vhd" in Library work.
+Architecture behavioral of Entity decoder_turn is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/siete_segmentos.vhd" in Library work.
+Architecture behavioral of Entity siete_segmentos is up to date.
+Compiling vhdl file "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Mesa_arch.vhd" in Library work.
+Entity <mesa_arch> compiled.
+Entity <mesa_arch> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <Mesa_arch> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <counters_1> in library <work> (architecture <archi>).
+
+Analyzing hierarchy for entity <tx_arch> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <rx_arch> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Decoder_turn> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <siete_segmentos> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <selector_arch> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux7s_arch> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <decoder_arch> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <Mesa_arch> in library <work> (Architecture <behavioral>).
+Entity <Mesa_arch> analyzed. Unit <Mesa_arch> generated.
+
+Analyzing Entity <counters_1> in library <work> (Architecture <archi>).
+Entity <counters_1> analyzed. Unit <counters_1> generated.
+
+Analyzing Entity <tx_arch> in library <work> (Architecture <behavioral>).
+Entity <tx_arch> analyzed. Unit <tx_arch> generated.
+
+Analyzing Entity <rx_arch> in library <work> (Architecture <behavioral>).
+Entity <rx_arch> analyzed. Unit <rx_arch> generated.
+
+Analyzing Entity <Decoder_turn> in library <work> (Architecture <behavioral>).
+Entity <Decoder_turn> analyzed. Unit <Decoder_turn> generated.
+
+Analyzing Entity <siete_segmentos> in library <work> (Architecture <behavioral>).
+Entity <siete_segmentos> analyzed. Unit <siete_segmentos> generated.
+
+Analyzing Entity <selector_arch> in library <work> (Architecture <behavioral>).
+Entity <selector_arch> analyzed. Unit <selector_arch> generated.
+
+Analyzing Entity <mux7s_arch> in library <work> (Architecture <behavioral>).
+Entity <mux7s_arch> analyzed. Unit <mux7s_arch> generated.
+
+Analyzing Entity <decoder_arch> in library <work> (Architecture <behavioral>).
+Entity <decoder_arch> analyzed. Unit <decoder_arch> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <counters_1>.
+    Related source file is "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Debouncer.vhd".
+    Found 1-bit register for signal <Q>.
+    Found 24-bit up counter for signal <counter>.
+    Found 25-bit comparator greatequal for signal <counter$cmp_ge0000> created at line 23.
+    Found 25-bit comparator greater for signal <counter$cmp_gt0000> created at line 19.
+    Found 25-bit comparator less for signal <Q$cmp_lt0000> created at line 23.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+Unit <counters_1> synthesized.
+
+
+Synthesizing Unit <tx_arch>.
+    Related source file is "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/tx_arch.vhd".
+    Found finite state machine <FSM_0> for signal <tx_state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 7                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 7                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Clock enable       | clk_enable                (positive)           |
+    | Power Up State     | idle                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <tx>.
+    Found 3-bit up counter for signal <tx_data_counter>.
+    Found 8-bit register for signal <tx_data_temp>.
+    Found 1-bit 8-to-1 multiplexer for signal <tx_data_temp$mux0000> created at line 37.
+    Found 1-bit register for signal <tx_parity_bit>.
+    Found 1-bit xor2 for signal <tx_parity_bit$xor0000> created at line 38.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  10 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <tx_arch> synthesized.
+
+
+Synthesizing Unit <rx_arch>.
+    Related source file is "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/rx_arch.vhd".
+    Found finite state machine <FSM_1> for signal <rx_state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 7                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 7                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Clock enable       | clk_enable                (positive)           |
+    | Power Up State     | idle                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <rx_data>.
+    Found 1-bit register for signal <data_ready>.
+    Found 1-bit register for signal <data_enable>.
+    Found 4-bit up counter for signal <rx_data_counter>.
+    Found 8-bit register for signal <rx_out_temp>.
+    Found 1-bit register for signal <rx_parity_bit>.
+    Found 1-bit xor2 for signal <rx_parity_bit$xor0000> created at line 39.
+    Found 1-bit register for signal <rx_temp>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  20 D-type flip-flop(s).
+Unit <rx_arch> synthesized.
+
+
+Synthesizing Unit <Decoder_turn>.
+    Related source file is "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Decoder_turn.vhd".
+WARNING:Xst:737 - Found 4-bit latch for signal <temp0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 4-bit latch for signal <temp1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 128x8-bit ROM for signal <$rom0000>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <Decoder_turn> synthesized.
+
+
+Synthesizing Unit <selector_arch>.
+    Related source file is "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/selector_arch.vhd".
+    Found finite state machine <FSM_2> for signal <ciclos>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 0                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Clock enable       | ciclos$cmp_eq0000         (positive)           |
+    | Power Up State     | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit register for signal <salida>.
+    Found 18-bit up counter for signal <contador>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred   4 D-type flip-flop(s).
+Unit <selector_arch> synthesized.
+
+
+Synthesizing Unit <mux7s_arch>.
+    Related source file is "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/mux7s_arch.vhd".
+Unit <mux7s_arch> synthesized.
+
+
+Synthesizing Unit <decoder_arch>.
+    Related source file is "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/decoder_arch.vhd".
+    Found 16x8-bit ROM for signal <segment>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <decoder_arch> synthesized.
+
+
+Synthesizing Unit <siete_segmentos>.
+    Related source file is "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/siete_segmentos.vhd".
+Unit <siete_segmentos> synthesized.
+
+
+Synthesizing Unit <Mesa_arch>.
+    Related source file is "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/Mesas_turnero/Mesa_arch.vhd".
+    Found 1-bit register for signal <btnpressed>.
+    Found 1-bit register for signal <clk_enable>.
+    Found 13-bit up counter for signal <counter>.
+    Found 8-bit register for signal <data>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  10 D-type flip-flop(s).
+Unit <Mesa_arch> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 128x8-bit ROM                                         : 1
+ 16x8-bit ROM                                          : 1
+# Counters                                             : 6
+ 13-bit up counter                                     : 1
+ 18-bit up counter                                     : 1
+ 24-bit up counter                                     : 2
+ 3-bit up counter                                      : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 22
+ 1-bit register                                        : 18
+ 4-bit register                                        : 1
+ 8-bit register                                        : 3
+# Latches                                              : 2
+ 4-bit latch                                           : 2
+# Comparators                                          : 6
+ 25-bit comparator greatequal                          : 2
+ 25-bit comparator greater                             : 2
+ 25-bit comparator less                                : 2
+# Multiplexers                                         : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <sietesegmentos/modulo1/ciclos/FSM> on signal <ciclos[1:4]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 0001
+ 01    | 1000
+ 10    | 0100
+ 11    | 0010
+-------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <receptor/rx_state/FSM> on signal <rx_state[1:5]> with one-hot encoding.
+--------------------------
+ State        | Encoding
+--------------------------
+ idle         | 00001
+ data         | 00010
+ parity_state | 00100
+ stop1        | 01000
+ stop2        | 10000
+--------------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <transmitter/tx_state/FSM> on signal <tx_state[1:5]> with one-hot encoding.
+--------------------------
+ State        | Encoding
+--------------------------
+ idle         | 00001
+ data         | 00010
+ parity_state | 00100
+ stop1        | 01000
+ stop2        | 10000
+--------------------------
+WARNING:Xst:1710 - FF/Latch <tx_data_temp_0> (without init value) has a constant value of 1 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tx_data_temp_2> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tx_data_temp_3> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tx_data_temp_5> (without init value) has a constant value of 1 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tx_data_temp_6> (without init value) has a constant value of 1 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tx_data_temp_7> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_0> (without init value) has a constant value of 1 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_2> (without init value) has a constant value of 0 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_3> (without init value) has a constant value of 0 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_5> (without init value) has a constant value of 1 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_6> (without init value) has a constant value of 1 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_7> (without init value) has a constant value of 0 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 3
+# ROMs                                                 : 2
+ 128x8-bit ROM                                         : 1
+ 16x8-bit ROM                                          : 1
+# Counters                                             : 6
+ 13-bit up counter                                     : 1
+ 18-bit up counter                                     : 1
+ 24-bit up counter                                     : 2
+ 3-bit up counter                                      : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 46
+ Flip-Flops                                            : 46
+# Latches                                              : 2
+ 4-bit latch                                           : 2
+# Comparators                                          : 6
+ 25-bit comparator greatequal                          : 2
+ 25-bit comparator greater                             : 2
+ 25-bit comparator less                                : 2
+# Multiplexers                                         : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <data_0> (without init value) has a constant value of 1 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_2> (without init value) has a constant value of 0 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_3> (without init value) has a constant value of 0 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_5> (without init value) has a constant value of 1 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_6> (without init value) has a constant value of 1 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_7> (without init value) has a constant value of 0 in block <Mesa_arch>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <data_1> in Unit <Mesa_arch> is equivalent to the following FF/Latch, which will be removed : <data_4> 
+INFO:Xst:2261 - The FF/Latch <tx_data_temp_1> in Unit <tx_arch> is equivalent to the following FF/Latch, which will be removed : <tx_data_temp_4> 
+INFO:Xst:2261 - The FF/Latch <tx_data_temp_2> in Unit <tx_arch> is equivalent to the following 2 FFs/Latches, which will be removed : <tx_data_temp_3> <tx_data_temp_7> 
+INFO:Xst:2261 - The FF/Latch <tx_data_temp_0> in Unit <tx_arch> is equivalent to the following 2 FFs/Latches, which will be removed : <tx_data_temp_5> <tx_data_temp_6> 
+WARNING:Xst:1710 - FF/Latch <tx_data_temp_0> (without init value) has a constant value of 1 in block <tx_arch>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tx_data_temp_2> (without init value) has a constant value of 0 in block <tx_arch>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <Mesa_arch> ...
+
+Optimizing unit <counters_1> ...
+
+Optimizing unit <tx_arch> ...
+
+Optimizing unit <rx_arch> ...
+
+Optimizing unit <Decoder_turn> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Mesa_arch, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 132
+ Flip-Flops                                            : 132
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Mesa_arch.ngr
+Top Level Output File Name         : Mesa_arch
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 17
+
+Cell Usage :
+# BELS                             : 431
+#      GND                         : 1
+#      INV                         : 14
+#      LUT1                        : 81
+#      LUT2                        : 23
+#      LUT2_L                      : 1
+#      LUT3                        : 9
+#      LUT3_D                      : 2
+#      LUT3_L                      : 1
+#      LUT4                        : 85
+#      LUT4_D                      : 3
+#      LUT4_L                      : 8
+#      MUXCY                       : 110
+#      MUXF5                       : 9
+#      MUXF6                       : 4
+#      VCC                         : 1
+#      XORCY                       : 79
+# FlipFlops/Latches                : 140
+#      FDE                         : 41
+#      FDR                         : 34
+#      FDRE                        : 56
+#      FDRSE                       : 1
+#      LD                          : 8
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 16
+#      IBUF                        : 3
+#      OBUF                        : 13
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      117  out of   4656     2%  
+ Number of Slice Flip Flops:            140  out of   9312     1%  
+ Number of 4 input LUTs:                227  out of   9312     2%  
+ Number of IOs:                          17
+ Number of bonded IOBs:                  17  out of    232     7%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK                                | BUFGP                  | 132   |
+receptor/data_ready                | NONE(decod/temp0_3)    | 8     |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.730ns (Maximum Frequency: 148.588MHz)
+   Minimum input arrival time before clock: 4.791ns
+   Maximum output required time after clock: 8.746ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 6.730ns (frequency: 148.588MHz)
+  Total number of paths / destination ports: 3924 / 316
+-------------------------------------------------------------------------
+Delay:               6.730ns (Levels of Logic = 11)
+  Source:            debouncer_S/counter_5 (FF)
+  Destination:       debouncer_S/counter_23 (FF)
+  Source Clock:      CLK rising
+  Destination Clock: CLK rising
+
+  Data Path: debouncer_S/counter_5 to debouncer_S/counter_23
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             3   0.591   0.706  debouncer_S/counter_5 (debouncer_S/counter_5)
+     LUT1:I0->O            1   0.704   0.000  debouncer_S/Mcompar_Q_cmp_lt0000_cy<0>_rt (debouncer_S/Mcompar_Q_cmp_lt0000_cy<0>_rt)
+     MUXCY:S->O            1   0.464   0.000  debouncer_S/Mcompar_Q_cmp_lt0000_cy<0> (debouncer_S/Mcompar_Q_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  debouncer_S/Mcompar_Q_cmp_lt0000_cy<1> (debouncer_S/Mcompar_Q_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  debouncer_S/Mcompar_Q_cmp_lt0000_cy<2> (debouncer_S/Mcompar_Q_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  debouncer_S/Mcompar_Q_cmp_lt0000_cy<3> (debouncer_S/Mcompar_Q_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  debouncer_S/Mcompar_Q_cmp_lt0000_cy<4> (debouncer_S/Mcompar_Q_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  debouncer_S/Mcompar_Q_cmp_lt0000_cy<5> (debouncer_S/Mcompar_Q_cmp_lt0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  debouncer_S/Mcompar_Q_cmp_lt0000_cy<6> (debouncer_S/Mcompar_Q_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  debouncer_S/Mcompar_Q_cmp_lt0000_cy<7> (debouncer_S/Mcompar_Q_cmp_lt0000_cy<7>)
+     MUXCY:CI->O           2   0.459   0.526  debouncer_S/Mcompar_Q_cmp_lt0000_cy<8> (debouncer_S/Mcompar_Q_cmp_lt0000_cy<8>)
+     LUT2:I1->O           24   0.704   1.252  debouncer_S/counter_and00001 (debouncer_S/counter_and0000)
+     FDRE:R                    0.911          debouncer_S/counter_0
+    ----------------------------------------
+    Total                      6.730ns (4.246ns logic, 2.484ns route)
+                                       (63.1% logic, 36.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
+  Total number of paths / destination ports: 99 / 99
+-------------------------------------------------------------------------
+Offset:              4.791ns (Levels of Logic = 2)
+  Source:            BTN_S (PAD)
+  Destination:       debouncer_S/counter_23 (FF)
+  Destination Clock: CLK rising
+
+  Data Path: BTN_S to debouncer_S/counter_23
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.218   0.706  BTN_S_IBUF (BTN_S_IBUF)
+     LUT2:I0->O           24   0.704   1.252  debouncer_S/counter_and00001 (debouncer_S/counter_and0000)
+     FDRE:R                    0.911          debouncer_S/counter_0
+    ----------------------------------------
+    Total                      4.791ns (2.833ns logic, 1.958ns route)
+                                       (59.1% logic, 40.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 229 / 12
+-------------------------------------------------------------------------
+Offset:              8.746ns (Levels of Logic = 4)
+  Source:            sietesegmentos/modulo1/salida_1 (FF)
+  Destination:       number<7> (PAD)
+  Source Clock:      CLK rising
+
+  Data Path: sietesegmentos/modulo1/salida_1 to number<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.591   0.706  sietesegmentos/modulo1/salida_1 (sietesegmentos/modulo1/salida_1)
+     LUT4:I0->O            4   0.704   0.762  sietesegmentos/modulo2/numero<0>11 (N01)
+     LUT4:I0->O            7   0.704   0.883  sietesegmentos/modulo2/numero<3>1 (sietesegmentos/salidamux<3>)
+     LUT4:I0->O            1   0.704   0.420  sietesegmentos/modulo3/Mrom_segment21 (number_2_OBUF)
+     OBUF:I->O                 3.272          number_2_OBUF (number<2>)
+    ----------------------------------------
+    Total                      8.746ns (5.975ns logic, 2.771ns route)
+                                       (68.3% logic, 31.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'receptor/data_ready'
+  Total number of paths / destination ports: 56 / 7
+-------------------------------------------------------------------------
+Offset:              7.158ns (Levels of Logic = 3)
+  Source:            decod/temp0_1 (LATCH)
+  Destination:       number<7> (PAD)
+  Source Clock:      receptor/data_ready falling
+
+  Data Path: decod/temp0_1 to number<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.676   0.499  decod/temp0_1 (decod/temp0_1)
+     LUT4:I1->O            7   0.704   0.883  sietesegmentos/modulo2/numero<1>1 (sietesegmentos/salidamux<1>)
+     LUT4:I0->O            1   0.704   0.420  sietesegmentos/modulo3/Mrom_segment51 (number_5_OBUF)
+     OBUF:I->O                 3.272          number_5_OBUF (number<5>)
+    ----------------------------------------
+    Total                      7.158ns (5.356ns logic, 1.802ns route)
+                                       (74.8% logic, 25.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.22 secs
+ 
+--> 
+
+Total memory usage is 272424 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   22 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
+

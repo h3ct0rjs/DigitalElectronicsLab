@@ -1,0 +1,14 @@
+AR counters_1 archi "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/Debouncer.vhd" sub00/vhpl09 1481296371
+EN mux7s_arch NULL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/mux7s_arch.vhd" sub00/vhpl04 1481296366
+AR decoder_arch behavioral "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/decoder_arch.vhd" sub00/vhpl07 1481296369
+EN decoder_arch NULL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/decoder_arch.vhd" sub00/vhpl06 1481296368
+AR siete_segmentos behavioral "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/siete_segmentos.vhd" sub00/vhpl11 1481296373
+EN tx_arch NULL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/tx_arch.vhd" sub00/vhpl12 1481296374
+EN siete_segmentos NULL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/siete_segmentos.vhd" sub00/vhpl10 1481296372
+EN gen_turnos NULL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/gen_turnos.vhd" sub00/vhpl00 1481296376
+AR tx_arch behavioral "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/tx_arch.vhd" sub00/vhpl13 1481296375
+AR mux7s_arch behavioral "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/mux7s_arch.vhd" sub00/vhpl05 1481296367
+AR gen_turnos behavioral "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/gen_turnos.vhd" sub00/vhpl01 1481296377
+AR selector_arch behavioral "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/selector_arch.vhd" sub00/vhpl03 1481296365
+EN selector_arch NULL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/selector_arch.vhd" sub00/vhpl02 1481296364
+EN counters_1 NULL "C:/Users/Sebastian/Documents/UNIVERSITY/Electronica Digital/generadorturnos/Debouncer.vhd" sub00/vhpl08 1481296370

@@ -1,0 +1,7 @@
+work	"Debouncer.vhd"
+work	"decoder_arch.vhd"
+work	"gen_turnos.vhd"
+work	"mux7s_arch.vhd"
+work	"selector_arch.vhd"
+work	"siete_segmentos.vhd"
+work	"tx_arch.vhd"
