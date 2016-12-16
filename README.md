@@ -18,3 +18,5 @@ Universidad Tecnologica de Pereira 2016-2.
 - Email : hfjimenez@utp.edu.co
 - Email : sebastianzapata@utp.edu.co 
 - Email : jorgemario.gil@utp.edu.co
+- Email : jfgl@utp.edu.co
+
